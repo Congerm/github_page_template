@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Matthew Conger - Data Science Portfolio"
+  title: "Your Name - Data Science Portfolio"
   description: "A showcase of my data science projects and learning journey"
   
   navbar:
@@ -26,9 +26,9 @@ website:
             href: projects/final-project.qmd
     right:
       - icon: github
-        href: https://github.com/congerm
+        href: https://github.com/your-username
       - icon: linkedin
-        href: https://linkedin.com/in/conger-matthew
+        href: https://linkedin.com/in/your-profile
 
   sidebar:
     - title: "Projects"
