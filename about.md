@@ -10,7 +10,7 @@ I am a driven, people focused individual studying at Brigham Young university. I
 
 ## Education
 
-- **[Statistics]** - [Brigham Young University], [2027]
+- **Statistics** - Brigham Young University, 2027
 - **Relevant Coursework**: Statistics, Data Analysis, Programming, Information Systems, and Business
 
 ## Experience
