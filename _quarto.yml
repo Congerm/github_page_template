@@ -28,7 +28,7 @@ website:
             href: projects/final-project.qmd
       - text: "Blogs"
         menu:
-          - text: "Blog Tutorial"
+          - text: "All Blogs"
             href: blogs/index.md
           - text: "---"
           - text: "Tutorial Blog Post"
