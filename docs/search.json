@@ -1,5 +1,32 @@
 [
   {
+    "objectID": "blogs/index.html",
+    "href": "blogs/index.html",
+    "title": "Blogs Overview",
+    "section": "",
+    "text": "Description: A simple data science tutorial blog post."
+  },
+  {
+    "objectID": "blogs/index.html#all-blogs",
+    "href": "blogs/index.html#all-blogs",
+    "title": "Blogs Overview",
+    "section": "",
+    "text": "Description: Pick a dataset and explore it to discover insights and answer questions.\n\n\n\nDescription: Find an interesting data source, collect the data, and prepare it for analysis.\n\n\n\nDescription: A comprehensive project that shows off my data science skills.",
+    "crumbs": [
+      "Projects Overview"
+    ]
+  },
+  {
+    "objectID": "projects/eda.html",
+    "href": "projects/eda.html",
+    "title": "EDA Project",
+    "section": "",
+    "text": "This is coming down the pipeline. Check again later.",
+    "crumbs": [
+      "EDA Project"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Welcome to My Data Science Portfolio",
@@ -28,34 +55,74 @@
     "text": "Learn how I explore datasets to find interesting patterns and answer questions.\n\n\n\nSee how I gather data from different sources and prepare it for analysis.\n\n\n\nSee how I tackle a data science project beginning to end.\n\n\n\nThanks for visiting! Feel free to explore my projects and see what I’m learning."
   },
   {
-    "objectID": "projects/index.html",
-    "href": "projects/index.html",
-    "title": "Projects Overview",
+    "objectID": "blogs/index.html",
+    "href": "blogs/index.html",
+    "title": "Blogs Overview",
     "section": "",
-    "text": "Description: Pick a dataset and explore it to discover insights and answer questions.\n\n\n\nDescription: Find an interesting data source, collect the data, and prepare it for analysis.\n\n\n\nDescription: A comprehensive project that shows off my data science skills.",
-    "crumbs": [
-      "Projects Overview"
-    ]
+    "text": "Description: A simple data science tutorial blog post."
   },
   {
-    "objectID": "projects/index.html#all-projects",
-    "href": "projects/index.html#all-projects",
-    "title": "Projects Overview",
+    "objectID": "blogs/index.html#all-blogs",
+    "href": "blogs/index.html#all-blogs",
+    "title": "Blogs Overview",
     "section": "",
-    "text": "Description: Pick a dataset and explore it to discover insights and answer questions.\n\n\n\nDescription: Find an interesting data source, collect the data, and prepare it for analysis.\n\n\n\nDescription: A comprehensive project that shows off my data science skills.",
-    "crumbs": [
-      "Projects Overview"
-    ]
+    "text": "Description: A simple data science tutorial blog post."
   },
   {
-    "objectID": "projects/final-project.html",
-    "href": "projects/final-project.html",
-    "title": "Final Project",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Me",
     "section": "",
-    "text": "This is coming down the pipeline. Check again later.",
-    "crumbs": [
-      "Final Project"
-    ]
+    "text": "Profile Picture"
+  },
+  {
+    "objectID": "about.html#background",
+    "href": "about.html#background",
+    "title": "About Me",
+    "section": "Background",
+    "text": "Background\nI am a driven, people focused individual studying at Brigham Young university. I am in my third year, and I am studying Statistics with an emphasis in Data Science. I was first inspired to do this by my love for communication and business as well as my love for math and problem solving. My goal is to help people make informed, data-driven decisions to help people and grow businesses. I am currently doing research in the Marriott Business School learning about the sociological effect of AI adoption in the workplace."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About Me",
+    "section": "Education",
+    "text": "Education\n\nStatistics - Brigham Young University, 2027\nRelevant Coursework: Statistics, Data Analysis, Programming, Information Systems, and Business"
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "About Me",
+    "section": "Experience",
+    "text": "Experience\n\nResearch Assistant — Brigham Young University, Marriott School of Business (Strategic Management)\nProvo, UT · Apr 2025 – Present\n\nProofread statistical components of curriculum materials and academic research articles\n\nMigrated a large-scale database from Snowflake to a Linux-based university supercomputer\n\nAnalyzed cooperative research survey data using Multinomial and Ordinal Logistic Regression to generate insights on employee perceptions of AI adoption\n\nComputer Programmer (Front-End) — Brigham Young University, Marriott School of Business (ILABZ)\nProvo, UT · Mar 2024 – Apr 2025\n\nBuilt React components using TypeScript as part of a 7-member development team\n\nDeveloped and maintained five learning-oriented web applications focused on stock markets and international trade\n\nSocial Media Specialist — North Carolina Raleigh Mission\nRaleigh, NC · Jan 2022 – Jun 2022\n\nManaged monthly social media marketing campaigns using Meta Business Suite\n\nIncreased monthly audience reach while maintaining the existing budget"
+  },
+  {
+    "objectID": "about.html#skills-interests",
+    "href": "about.html#skills-interests",
+    "title": "About Me",
+    "section": "Skills & Interests",
+    "text": "Skills & Interests\n\nTechnical Skills\n\nProgramming: Python, R\nData Analysis: Pandas, NumPy\nVisualization: Matplotlib, Seaborn\nMachine Learning: Scikit-learn\nTools: Jupyter Notebooks, Git/GitHub -Quarto: For report writing and presenting visuals\nExcel: Experienced in built-in methods as well as VBA (Openpyxl for python integration)\n\n\n\nAreas of Interest\n\nI am interested in financial analytics especially the interaction between the price of natural resources with the stock prices of companies that buy them\nI am curious about neural networks and complex machine learning techniques\n\n\n\nHobbies\n\nI love backpacking and hiking\nIn my free time I enjoy reading and playing sports\nI ski and love the winter"
+  },
+  {
+    "objectID": "about.html#goals",
+    "href": "about.html#goals",
+    "title": "About Me",
+    "section": "Goals",
+    "text": "Goals\nI aim to use data science techniques to allow myself to broaden the scope of my questions. I plan to develop skills that enable me to analyze complex datasets and derive meaningful insights. I hope to utilize these skills in the long term to make impactful contributions in my field and to have the skills to answer my own questions using data."
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "About Me",
+    "section": "Contact",
+    "text": "Contact\n\nEmail: matthewdavidconger@gmail.com\nGitHub: github.com/congerm\nLinkedIn: linkedin.com/in/conger-matthew\n\nThis portfolio showcases my learning progress and projects completed during my data science studies."
+  },
+  {
+    "objectID": "blogs/tutorial.html",
+    "href": "blogs/tutorial.html",
+    "title": "",
+    "section": "",
+    "text": "Code"
   },
   {
     "objectID": "projects/data-acquisition.html",
@@ -68,55 +135,13 @@
     ]
   },
   {
-    "objectID": "projects/eda.html",
-    "href": "projects/eda.html",
-    "title": "EDA Project",
+    "objectID": "projects/final-project.html",
+    "href": "projects/final-project.html",
+    "title": "Final Project",
     "section": "",
     "text": "This is coming down the pipeline. Check again later.",
     "crumbs": [
-      "EDA Project"
+      "Final Project"
     ]
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About Me",
-    "section": "",
-    "text": "Write a brief introduction about yourself here. Include:\n\nYour academic background\nYour interest in data science\nYour career goals\nAny relevant experience or projects"
-  },
-  {
-    "objectID": "about.html#background",
-    "href": "about.html#background",
-    "title": "About Me",
-    "section": "",
-    "text": "Write a brief introduction about yourself here. Include:\n\nYour academic background\nYour interest in data science\nYour career goals\nAny relevant experience or projects"
-  },
-  {
-    "objectID": "about.html#education",
-    "href": "about.html#education",
-    "title": "About Me",
-    "section": "Education",
-    "text": "Education\n\n[Your Degree] - [University Name], [Year]\nRelevant Coursework: Statistics, Data Analysis, Programming, etc."
-  },
-  {
-    "objectID": "about.html#skills-interests",
-    "href": "about.html#skills-interests",
-    "title": "About Me",
-    "section": "Skills & Interests",
-    "text": "Skills & Interests\n\nTechnical Skills\n\nProgramming: Python\nData Analysis: Pandas, NumPy\nVisualization: Matplotlib, Seaborn\nMachine Learning: Scikit-learn\nTools: Jupyter Notebooks, Git/GitHub\n\n\n\nAreas of Interest\n\n[Your specific interests, e.g., environmental data, healthcare analytics, finance, etc.]\n[Other areas you’re curious about]"
-  },
-  {
-    "objectID": "about.html#goals",
-    "href": "about.html#goals",
-    "title": "About Me",
-    "section": "Goals",
-    "text": "Goals\nDescribe what you hope to achieve through your data science journey:\n\nShort-term learning objectives\nLong-term career aspirations\nTypes of problems you want to solve"
-  },
-  {
-    "objectID": "about.html#contact",
-    "href": "about.html#contact",
-    "title": "About Me",
-    "section": "Contact",
-    "text": "Contact\n\nEmail: your.email@example.com\nGitHub: github.com/your-username\nLinkedIn: linkedin.com/in/your-profile\n\n\nThis portfolio showcases my learning progress and projects completed during my data science studies."
   }
 ]
