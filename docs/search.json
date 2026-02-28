@@ -123,9 +123,65 @@
   {
     "objectID": "blogs/tutorial.html",
     "href": "blogs/tutorial.html",
-    "title": "Blog Tutorial",
+    "title": "Apply Function VS Vectorized Operations",
     "section": "",
-    "text": "This is coming down the pipeline. Check again later."
+    "text": "In Class I have been learning about how to utilize Pandas in my data cleaning and analysis. One of the earliest functions we learned is the .apply() function. This is a super useful function that we can use to make changes to all of our rows in one call.\nThe downside is, it isn’t always the most efficient. This often wont make a huge difference but if we are working with large data sets, it can cut your run time down by a lot.\nIn this article, I hope to explain:\n\nHow does .apply() work?\nWhen should we use it?\nWhat is the alternative?\n\nHaving an understanding of apply() and its shortcomings will help you spend less time waiting on your computer and make you a better Data Scientist\n\n\n\n\nThe .apply() function takes another function and applies it to each row or column in a Series or DataFrame.\nIf it sounds like a loop, that’s because it kind of is one.\n\n.apply() executes Python code row-by-row.\n\nThis is the main shortcoming, rather than doing things all at once, its going through, one at a time and this takes time while simultaneously not allowing your computer to work as hard as it could using other methods.This is why the difference is much more noticeable on larger datasets.\n\n\n\n\nCode\nimport pandas as pd\n\ndf = pd.DataFrame({\n    \"score\": [72, 88, 95, 60, 83]\n})\n\ndef pass_fail(x):\n    return \"Pass\" if x &gt;= 70 else \"Fail\"\n\ndf[\"result\"] = df[\"score\"].apply(pass_fail)\ndf\n\n\n\n\n\n\n\n\n\nscore\nresult\n\n\n\n\n0\n72\nPass\n\n\n1\n88\nPass\n\n\n2\n95\nPass\n\n\n3\n60\nFail\n\n\n4\n83\nPass\n\n\n\n\n\n\n\nThis is a great use for apply(), it keeps the code intuitive and since it isn’t very large, we dont even notice the extra time it takes.\n\n\n\n\n\n.apply() makes the most sense when:\n\nWhen your logic is complex and hard to vectorize\nYou have conditional transformations\nYou are in the EDA phase of your analysis\nYour dataset is small enough that you aren’t worried about how long it takes\n\n\n\n\n\nCode\ndef categorize(score):\n    if score &gt;= 90:\n        return \"A\"\n    elif score &gt;= 80:\n        return \"B\"\n    elif score &gt;= 70:\n        return \"C\"\n    else:\n        return \"Below C\"\n\ndf[\"grade\"] = df[\"score\"].apply(categorize)\ndf\n\n\n\n\n\n\n\n\n\nscore\nresult\ngrade\n\n\n\n\n0\n72\nPass\nC\n\n\n1\n88\nPass\nB\n\n\n2\n95\nPass\nA\n\n\n3\n60\nFail\nBelow C\n\n\n4\n83\nPass\nB\n\n\n\n\n\n\n\nSimilarly to the previous example, this helps the code to be easy to read and understand.\n\n\n\n\n\nThe biggest issue is size.\n.apply() as mentioned before works almost like a loop, meaning it performs the operations over and over where as other methods can do it all at once. It still does it very quickly so unless you’re dealing with hundreds of rows it probably wont be a problem but sometimes we are working with millions of rows and that can have a huge difference.\nAn example of .apply() not being ideal is finding a mean:\n\\[\n\\bar{x} = \\frac{1}{n} \\sum_{i=1}^{n} x_i\n\\]\nBeing able to write it as a simple formula is a big hint that alternative options will be feasible and doing something like this in a loop will take forever. So what are your options?\n\n\n\n\nBringing us back to Linear algebra and using vectors can help us do some of our computations way more efficiently.\nYou may be thinking that this is great for numbers but we can also use it with boolean data.\n\n\n\n\nCode\ndf[\"result_vectorized\"] = df[\"score\"] &gt;= 70\ndf\n\n\n\n\n\n\n\n\n\nscore\nresult\ngrade\nresult_vectorized\n\n\n\n\n0\n72\nPass\nC\nTrue\n\n\n1\n88\nPass\nB\nTrue\n\n\n2\n95\nPass\nA\nTrue\n\n\n3\n60\nFail\nBelow C\nFalse\n\n\n4\n83\nPass\nB\nTrue\n\n\n\n\n\n\n\nThis adds a new column to our dataframe which we can compare to our earlier results, this time it returns True or False which is a little bit less readable but often we would want it that way anyway. Another limitation is that our grade column is going to be much harder to replicate. As you can see by the code though, once you’re familiar with how it works, its more concise and easier to read.\nThe reason this is so much faster is because it converts the columns into vectors and does everything all at once rather than every row individually.\nSince optimization can be really important, Pandas has published official documentation to improve performance. Link Here.\n\n\n\n\n\n\n\n\nImage comparing loops (Apply function) vs vectorized logic\n\n\nFigure: Vectorized operations operate on entire arrays at once, rather than looping through rows individually.\n\n\n\n\nBefore using the .apply() function:\n\nIs this logic simple?\nIs there a built-in Pandas function for this?\nWould a Boolean response work?\n\nIf you answer yes to any of these, consider avoiding .apply()\n\n\n\n\n.apply() is great and extremely useful in many ways but it isn’t the best tool for every job.\nSteps to take:\n\nUtilize built-in Pandas methods whenever possible\n\nTry Vectorized operations\nUse .apply() for complex custom transformations\n\nEven if you’re currently working with smaller data where efficiency isn’t a huge priority, consider practicing more efficient methods to build those skills and to be ready for larger datasets."
+  },
+  {
+    "objectID": "blogs/tutorial.html#introduction",
+    "href": "blogs/tutorial.html#introduction",
+    "title": "Apply Function VS Vectorized Operations",
+    "section": "",
+    "text": "In Class I have been learning about how to utilize Pandas in my data cleaning and analysis. One of the earliest functions we learned is the .apply() function. This is a super useful function that we can use to make changes to all of our rows in one call.\nThe downside is, it isn’t always the most efficient. This often wont make a huge difference but if we are working with large data sets, it can cut your run time down by a lot.\nIn this article, I hope to explain:\n\nHow does .apply() work?\nWhen should we use it?\nWhat is the alternative?\n\nHaving an understanding of apply() and its shortcomings will help you spend less time waiting on your computer and make you a better Data Scientist"
+  },
+  {
+    "objectID": "blogs/tutorial.html#how-does-.apply-work",
+    "href": "blogs/tutorial.html#how-does-.apply-work",
+    "title": "Apply Function VS Vectorized Operations",
+    "section": "",
+    "text": "The .apply() function takes another function and applies it to each row or column in a Series or DataFrame.\nIf it sounds like a loop, that’s because it kind of is one.\n\n.apply() executes Python code row-by-row.\n\nThis is the main shortcoming, rather than doing things all at once, its going through, one at a time and this takes time while simultaneously not allowing your computer to work as hard as it could using other methods.This is why the difference is much more noticeable on larger datasets.\n\n\n\n\nCode\nimport pandas as pd\n\ndf = pd.DataFrame({\n    \"score\": [72, 88, 95, 60, 83]\n})\n\ndef pass_fail(x):\n    return \"Pass\" if x &gt;= 70 else \"Fail\"\n\ndf[\"result\"] = df[\"score\"].apply(pass_fail)\ndf\n\n\n\n\n\n\n\n\n\nscore\nresult\n\n\n\n\n0\n72\nPass\n\n\n1\n88\nPass\n\n\n2\n95\nPass\n\n\n3\n60\nFail\n\n\n4\n83\nPass\n\n\n\n\n\n\n\nThis is a great use for apply(), it keeps the code intuitive and since it isn’t very large, we dont even notice the extra time it takes."
+  },
+  {
+    "objectID": "blogs/tutorial.html#when-to-use-.apply",
+    "href": "blogs/tutorial.html#when-to-use-.apply",
+    "title": "Apply Function VS Vectorized Operations",
+    "section": "",
+    "text": ".apply() makes the most sense when:\n\nWhen your logic is complex and hard to vectorize\nYou have conditional transformations\nYou are in the EDA phase of your analysis\nYour dataset is small enough that you aren’t worried about how long it takes\n\n\n\n\n\nCode\ndef categorize(score):\n    if score &gt;= 90:\n        return \"A\"\n    elif score &gt;= 80:\n        return \"B\"\n    elif score &gt;= 70:\n        return \"C\"\n    else:\n        return \"Below C\"\n\ndf[\"grade\"] = df[\"score\"].apply(categorize)\ndf\n\n\n\n\n\n\n\n\n\nscore\nresult\ngrade\n\n\n\n\n0\n72\nPass\nC\n\n\n1\n88\nPass\nB\n\n\n2\n95\nPass\nA\n\n\n3\n60\nFail\nBelow C\n\n\n4\n83\nPass\nB\n\n\n\n\n\n\n\nSimilarly to the previous example, this helps the code to be easy to read and understand."
+  },
+  {
+    "objectID": "blogs/tutorial.html#when-.apply-could-be-the-wrong-choice",
+    "href": "blogs/tutorial.html#when-.apply-could-be-the-wrong-choice",
+    "title": "Apply Function VS Vectorized Operations",
+    "section": "",
+    "text": "The biggest issue is size.\n.apply() as mentioned before works almost like a loop, meaning it performs the operations over and over where as other methods can do it all at once. It still does it very quickly so unless you’re dealing with hundreds of rows it probably wont be a problem but sometimes we are working with millions of rows and that can have a huge difference.\nAn example of .apply() not being ideal is finding a mean:\n\\[\n\\bar{x} = \\frac{1}{n} \\sum_{i=1}^{n} x_i\n\\]\nBeing able to write it as a simple formula is a big hint that alternative options will be feasible and doing something like this in a loop will take forever. So what are your options?"
+  },
+  {
+    "objectID": "blogs/tutorial.html#vectorization",
+    "href": "blogs/tutorial.html#vectorization",
+    "title": "Apply Function VS Vectorized Operations",
+    "section": "",
+    "text": "Bringing us back to Linear algebra and using vectors can help us do some of our computations way more efficiently.\nYou may be thinking that this is great for numbers but we can also use it with boolean data.\n\n\n\n\nCode\ndf[\"result_vectorized\"] = df[\"score\"] &gt;= 70\ndf\n\n\n\n\n\n\n\n\n\nscore\nresult\ngrade\nresult_vectorized\n\n\n\n\n0\n72\nPass\nC\nTrue\n\n\n1\n88\nPass\nB\nTrue\n\n\n2\n95\nPass\nA\nTrue\n\n\n3\n60\nFail\nBelow C\nFalse\n\n\n4\n83\nPass\nB\nTrue\n\n\n\n\n\n\n\nThis adds a new column to our dataframe which we can compare to our earlier results, this time it returns True or False which is a little bit less readable but often we would want it that way anyway. Another limitation is that our grade column is going to be much harder to replicate. As you can see by the code though, once you’re familiar with how it works, its more concise and easier to read.\nThe reason this is so much faster is because it converts the columns into vectors and does everything all at once rather than every row individually.\nSince optimization can be really important, Pandas has published official documentation to improve performance. Link Here."
+  },
+  {
+    "objectID": "blogs/tutorial.html#visualizing-the-difference",
+    "href": "blogs/tutorial.html#visualizing-the-difference",
+    "title": "Apply Function VS Vectorized Operations",
+    "section": "",
+    "text": "Image comparing loops (Apply function) vs vectorized logic\n\n\nFigure: Vectorized operations operate on entire arrays at once, rather than looping through rows individually."
+  },
+  {
+    "objectID": "blogs/tutorial.html#just-to-reiterate",
+    "href": "blogs/tutorial.html#just-to-reiterate",
+    "title": "Apply Function VS Vectorized Operations",
+    "section": "",
+    "text": "Before using the .apply() function:\n\nIs this logic simple?\nIs there a built-in Pandas function for this?\nWould a Boolean response work?\n\nIf you answer yes to any of these, consider avoiding .apply()"
+  },
+  {
+    "objectID": "blogs/tutorial.html#conclusion",
+    "href": "blogs/tutorial.html#conclusion",
+    "title": "Apply Function VS Vectorized Operations",
+    "section": "",
+    "text": ".apply() is great and extremely useful in many ways but it isn’t the best tool for every job.\nSteps to take:\n\nUtilize built-in Pandas methods whenever possible\n\nTry Vectorized operations\nUse .apply() for complex custom transformations\n\nEven if you’re currently working with smaller data where efficiency isn’t a huge priority, consider practicing more efficient methods to build those skills and to be ready for larger datasets."
   },
   {
     "objectID": "projects/data-acquisition.html",

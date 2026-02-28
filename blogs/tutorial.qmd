@@ -1,11 +1,156 @@
 ---
-title: "Blog Tutorial"
+title: "Apply Function VS Vectorized Operations"
 author: "Matthew Conger"
-date: "2025-01-01"
+date: "2/27/2026"
 format:
   html:
     code-fold: true
     toc: true
 ---
 
-This is coming down the pipeline. Check again later.
+# When should we be using the `.apply()` function in Pandas
+
+## Introduction
+
+In Class I have been learning about how to utilize **Pandas** in my data cleaning and analysis. One of the earliest functions we learned is the `.apply()` function. This is a super useful function that we can use to make changes to all of our rows in one call. 
+
+The downside is, it isn't always the most efficient. This often wont make a huge difference but if we are working with large data sets, it can cut your run time down by a lot.
+
+In this article, I hope to explain:
+
+- How does `.apply()` work?
+- When should we use it?
+- What is the alternative?
+
+Having an *understanding* of `apply()` and its shortcomings will help you spend less time waiting on your computer and make you a better Data Scientist
+
+------------------------------------------------------------------------
+
+## How does `.apply()` Work?
+
+The `.apply()` function takes another function and applies it to each row or column  in a Series or DataFrame.
+
+If it sounds like a loop, that's because it kind of is one.
+
+> `.apply()` executes Python code **row-by-row**.
+
+This is the main shortcoming, rather than doing things all at once, its going through, one at a time and this takes time while simultaneously not allowing your computer to work as hard as it could using other methods.This is why the difference is much more noticeable on larger datasets.
+
+
+### Example: Basic use for `.apply()`
+
+```{python}
+import pandas as pd
+
+df = pd.DataFrame({
+    "score": [72, 88, 95, 60, 83]
+})
+
+def pass_fail(x):
+    return "Pass" if x >= 70 else "Fail"
+
+df["result"] = df["score"].apply(pass_fail)
+df
+```
+This is a great use for `apply()`, it keeps the code intuitive and since it isn't very large, we dont even notice the extra time it takes.
+
+------------------------------------------------------------------------
+
+## When to use `.apply()`
+
+`.apply()` makes the most sense when:
+
+-   When your logic is **complex** and hard to vectorize
+-   You have conditional transformations
+-   You are in the *EDA* phase of your analysis
+-   Your dataset is small enough that you aren't worried about how long it takes
+
+### Example: Multi-Level Grading Logic
+
+```{python}
+def categorize(score):
+    if score >= 90:
+        return "A"
+    elif score >= 80:
+        return "B"
+    elif score >= 70:
+        return "C"
+    else:
+        return "Below C"
+
+df["grade"] = df["score"].apply(categorize)
+df
+```
+
+Similarly to the previous example, this helps the code to be easy to read and understand.
+
+------------------------------------------------------------------------
+
+## When `.apply()` could be the wrong choice
+
+The biggest issue is size.
+
+`.apply()` as mentioned before works almost like a loop, meaning it performs the operations over and over where as other methods can do it all at once. It still does it very quickly so unless you're dealing with hundreds of rows it probably wont be a problem but sometimes we are working with millions of rows and that can have a huge difference.
+
+An example of `.apply()` not being ideal is finding a mean:
+
+$$
+\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
+$$
+
+Being able to write it as a simple formula is a big hint that alternative options will be feasible and doing something like this in a loop will take forever. So what are your options?
+
+------------------------------------------------------------------------
+
+## Vectorization
+
+Bringing us back to Linear algebra and using vectors can help us do some of our computations way more efficiently.
+
+You may be thinking that this is great for numbers but we can also use it with boolean data.
+
+### Example: `.apply()` returning a boolean value
+
+```{python}
+df["result_vectorized"] = df["score"] >= 70
+df
+```
+This adds a new column to our dataframe which we can compare to our earlier results, this time it returns **True** or **False** which is a little bit less readable but often we would want it that way anyway. Another limitation is that our grade column is going to be much harder to replicate. As you can see by the code though, once you're familiar with how it works, its more concise and easier to read.
+
+The reason this is so much faster is because it converts the columns into vectors and does everything all at once rather than every row individually.
+
+Since optimization can be really important, Pandas has published official documentation to improve performance. 
+[Link Here](https://pandas.pydata.org/docs/user_guide/enhancingperf.html).
+
+------------------------------------------------------------------------
+
+## Visualizing the Difference
+
+![Image comparing loops (Apply function) vs vectorized logic](ApplyVSVector.png)
+
+*Figure: Vectorized operations operate on entire arrays at once, rather than looping through rows individually.*
+
+------------------------------------------------------------------------
+
+## Just to Reiterate
+
+Before using the `.apply()` function:
+
+1.  Is this logic simple?
+2.  Is there a built-in Pandas function for this?
+3.  Would a Boolean response work?
+
+If you answer *yes* to any of these, consider avoiding `.apply()`
+
+------------------------------------------------------------------------
+
+## Conclusion
+
+`.apply()` is great and extremely useful in many ways but it isn't the best tool for every job.
+
+Steps to take: 
+
+1. Utilize built-in Pandas methods whenever possible  
+2. Try Vectorized operations
+3. Use `.apply()` for complex custom transformations
+
+Even if you're currently working with smaller data where efficiency isn't a huge priority, consider practicing more efficient methods to build those skills and to be ready for larger datasets.
