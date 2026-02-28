@@ -1,15 +1,18 @@
 [
   {
-    "objectID": "blogs/index.html",
-    "href": "blogs/index.html",
-    "title": "Blogs Overview",
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Projects Overview",
     "section": "",
-    "text": "Description: A simple data science tutorial blog post."
+    "text": "Description: Pick a dataset and explore it to discover insights and answer questions.\n\n\n\nDescription: Find an interesting data source, collect the data, and prepare it for analysis.\n\n\n\nDescription: A comprehensive project that shows off my data science skills.",
+    "crumbs": [
+      "Projects Overview"
+    ]
   },
   {
-    "objectID": "blogs/index.html#all-blogs",
-    "href": "blogs/index.html#all-blogs",
-    "title": "Blogs Overview",
+    "objectID": "projects/index.html#all-projects",
+    "href": "projects/index.html#all-projects",
+    "title": "Projects Overview",
     "section": "",
     "text": "Description: Pick a dataset and explore it to discover insights and answer questions.\n\n\n\nDescription: Find an interesting data source, collect the data, and prepare it for analysis.\n\n\n\nDescription: A comprehensive project that shows off my data science skills.",
     "crumbs": [
@@ -120,9 +123,9 @@
   {
     "objectID": "blogs/tutorial.html",
     "href": "blogs/tutorial.html",
-    "title": "",
+    "title": "Blog Tutorial",
     "section": "",
-    "text": "Code"
+    "text": "This is coming down the pipeline. Check again later."
   },
   {
     "objectID": "projects/data-acquisition.html",
