@@ -44,13 +44,13 @@ The U.S. Securities and Exchange Commission has an API available to access the d
 - filing types (10-K, 10-Q, etc.)
 - filing dates
 
-- [SEC EDGAR API Documentation](https://www.sec.gov/edgar/sec-api-documentation)
+[SEC EDGAR API Documentation](https://www.sec.gov/edgar/sec-api-documentation)
 
 ### Yahoo Finance
 
 Yahoo Finance is where I got my historic data. It is a bit different since instead of using the normal requests package, Yahoo Finance has their own Python package to request data.
 
-- [yfinance GitHub Repository](https://github.com/ranaroussi/yfinance)
+[yfinance GitHub Repository](https://github.com/ranaroussi/yfinance)
 
 ---
 
@@ -84,13 +84,11 @@ Each one is a column along with the company ticker and the filing date.
 - **Rows:** `186,386`
 - **Columns:** `7`
 
-The dataset combines filing information with daily stock price data.
-
 ---
 
 ## Data Dictionary
 
-Below is a simplified description of the key variables.
+Below is a simplified description of combined data.
 
 | Feature | Description |
 |-------|-------------|
@@ -102,7 +100,7 @@ Below is a simplified description of the key variables.
 | `mean_close_pct_days5_10` | The average percent change in stock price from 5 to 10 days after filing |
 | `mean_close_pct_days11_30` | The average percent change in stock price from 11 to 30 days after filing |
 
-Additional derived variables may be included depending on the analysis.
+
 
 ---
 
@@ -117,8 +115,6 @@ To make the data easy to use I did the following:
 ---
 
 ## Data Quality Considerations
-
-Several limitations should be considered when using this dataset.
 
 ### Missing Data
 
