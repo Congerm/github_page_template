@@ -44,20 +44,11 @@ The U.S. Securities and Exchange Commission has an API available to access the d
 - filing types (10-K, 10-Q, etc.)
 - filing dates
 
-More information can be found here:
-
 - [SEC EDGAR API Documentation](https://www.sec.gov/edgar/sec-api-documentation)
 
-### Yahoo Finance API
+### Yahoo Finance
 
-Yahoo Finance provides historical stock market data including:
-
-- daily prices
-- trading volume
-- adjusted prices
-- dividend information
-
-In Python, this data is commonly accessed through the `yfinance` package.
+Yahoo Finance is where I got my historic data. It is a bit different since instead of using the normal requests package, Yahoo Finance has their own Python package to request data.
 
 - [yfinance GitHub Repository](https://github.com/ranaroussi/yfinance)
 
@@ -142,9 +133,9 @@ The dataset only has companies who are traded on the NASDAQ, have historic data 
 
 ## Reproducibility and Code
 
-All code used to collect and process the data is available here:
+All code used to get the data is available here:
 
-👉 **[GitHub Repository – Project Code](YOUR_GITHUB_LINK_HERE)**
+**[GitHub Repository – Project Code](https://github.com/Congerm/Data_Acquisition_Post-Earning_Drift)**
 
 The repository includes:
 
@@ -152,7 +143,7 @@ The repository includes:
 - cleaning and transformation steps
 - dataset generation code
 
-Students interested in building similar datasets can use this code as a starting point.
+If you're interested in building similar datasets can use this code as a starting point.
 
 ---
 
