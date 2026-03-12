@@ -62,14 +62,14 @@
     "href": "blogs/index.html",
     "title": "Blogs Overview",
     "section": "",
-    "text": "Description: A simple data science tutorial blog post."
+    "text": "Description: A simple data science tutorial blog post.\n\n\n\nDescription: A simple data science tutorial blog post."
   },
   {
     "objectID": "blogs/index.html#all-blogs",
     "href": "blogs/index.html#all-blogs",
     "title": "Blogs Overview",
     "section": "",
-    "text": "Description: A simple data science tutorial blog post."
+    "text": "Description: A simple data science tutorial blog post.\n\n\n\nDescription: A simple data science tutorial blog post."
   },
   {
     "objectID": "about.html",
@@ -121,11 +121,88 @@
     "text": "Contact\n\nEmail: matthewdavidconger@gmail.com\nGitHub: github.com/congerm\nLinkedIn: linkedin.com/in/conger-matthew\n\nThis portfolio showcases my learning progress and projects completed during my data science studies."
   },
   {
+    "objectID": "blogs/data_acquisition.html",
+    "href": "blogs/data_acquisition.html",
+    "title": "Data Acquisition For Reporting Analysis",
+    "section": "",
+    "text": "This data comes from two main sources. I used Yahoo Finance’s API system to get historic data for all companies currently traded on the NASDAQ stock exchange. The other key element of this dataset is the dates that these companies filed their annual and quarterly reports, to get this I used the SEC EDGAR API system as well as a smaller API to convert ticker symbol (unique stock identifiers) into CIKs (a numeric unique identifier) so that I could request data from the SEC system.\nI then combined and summarized these two sources into one large dataset which I will use to answer my question."
+  },
+  {
+    "objectID": "blogs/data_acquisition.html#introduction",
+    "href": "blogs/data_acquisition.html#introduction",
+    "title": "Data Acquisition For Reporting Analysis",
+    "section": "",
+    "text": "This data comes from two main sources. I used Yahoo Finance’s API system to get historic data for all companies currently traded on the NASDAQ stock exchange. The other key element of this dataset is the dates that these companies filed their annual and quarterly reports, to get this I used the SEC EDGAR API system as well as a smaller API to convert ticker symbol (unique stock identifiers) into CIKs (a numeric unique identifier) so that I could request data from the SEC system.\nI then combined and summarized these two sources into one large dataset which I will use to answer my question."
+  },
+  {
+    "objectID": "blogs/data_acquisition.html#motivating-question",
+    "href": "blogs/data_acquisition.html#motivating-question",
+    "title": "Data Acquisition For Reporting Analysis",
+    "section": "Motivating Question",
+    "text": "Motivating Question\n\nDo stock prices fully adjust on the day of an earnings announcement, or is there post-earnings drift?\n\nWhen companies announce their earnings, this has a direct effect on the stock price. For a long time it was accepted that this had an effect over the course of a few weeks after the report was published, this is what the post-earnings drift refers to. In more recent times due to the speed that the internet allows these reports to circulate, there are opinions that this adjustment is now absorbed into the stock price much more quickly (in this case synonymous with efficiently) some even believe that the price adjustment happens within the first day.\nMy aim is to compare the time of adjustment between pre 2010 markets and 2010-2025 markets to find if there is a statistically significant difference between the two."
+  },
+  {
+    "objectID": "blogs/data_acquisition.html#data-sources",
+    "href": "blogs/data_acquisition.html#data-sources",
+    "title": "Data Acquisition For Reporting Analysis",
+    "section": "Data Sources",
+    "text": "Data Sources\nThis project uses two primary data sources:\n\nSEC EDGAR API – used to obtain filing dates\n\nYahoo Finance API – used to obtain historical stock price data\n\nBoth data sources are widely used in financial research and are publicly accessible.\nI also made sure to follow the guidelines given in the API documentation for each to make sure everything was as it should be. Also the fact that they have APIs in place is evidence that they want this data to be accessible.\n\nSEC EDGAR API\nThe U.S. Securities and Exchange Commission has an API available to access the data from their EDGAR system I used it to get:\n\nfiling types (10-K, 10-Q, etc.)\nfiling dates\n\nMore information can be found here:\n\nSEC EDGAR API Documentation\n\n\n\nYahoo Finance API\nYahoo Finance provides historical stock market data including:\n\ndaily prices\ntrading volume\nadjusted prices\ndividend information\n\nIn Python, this data is commonly accessed through the yfinance package.\n\nyfinance GitHub Repository\n\n\n\n\nStoring the data\nFor the historic stock market data, I saved each company’s data as its own CSV where the name was ticker.csv so I could look through the directory and get any companies information.\nFor the filing dates, I saved the data in a JSON file with each company ticker as an object with two objects inside it with the two types of documents filed and a list of the dates those were filed.\n\n\n\nCombine the Datasets\nTo combine the data I loaded the JSON file with the filing dates then looped through each ticker, and for each one, I retrieved the associated csv file containing the data for that company. Then for each company I went through each filing date.\nFor each filing date I found 5 values: -The percent change in stock price on that day -The percent change in stock price on the next day -The average percent change in stock price from 2 to 4 days after -The average percent change in stock price from 5 to 10 days after -The average percent change in stock price from 11 to 30 days after\nEach one is a column along with the company ticker and the filing date."
+  },
+  {
+    "objectID": "blogs/data_acquisition.html#overview-of-the-final-dataset",
+    "href": "blogs/data_acquisition.html#overview-of-the-final-dataset",
+    "title": "Data Acquisition For Reporting Analysis",
+    "section": "Overview of the Final Dataset",
+    "text": "Overview of the Final Dataset\n\nDataset Size\n\nRows: 186,386\nColumns: 7\n\nThe dataset combines filing information with daily stock price data."
+  },
+  {
+    "objectID": "blogs/data_acquisition.html#data-dictionary",
+    "href": "blogs/data_acquisition.html#data-dictionary",
+    "title": "Data Acquisition For Reporting Analysis",
+    "section": "Data Dictionary",
+    "text": "Data Dictionary\nBelow is a simplified description of the key variables.\n\n\n\n\n\n\n\nFeature\nDescription\n\n\n\n\nticker\nStock ticker symbol\n\n\nfiling_date\nDate the filing was submitted to the SEC\n\n\nclose_pct_day0\nThe percent change in stock price on the day of filing\n\n\nclose_pct_day1\nThe percent change in stock price on the day after filing\n\n\nmean_close_pct_days2_4\nThe average percent change in stock price from 2 to 4 days after filing\n\n\nmean_close_pct_days5_10\nThe average percent change in stock price from 5 to 10 days after filing\n\n\nmean_close_pct_days11_30\nThe average percent change in stock price from 11 to 30 days after filing\n\n\n\nAdditional derived variables may be included depending on the analysis."
+  },
+  {
+    "objectID": "blogs/data_acquisition.html#data-cleaning-and-transformations",
+    "href": "blogs/data_acquisition.html#data-cleaning-and-transformations",
+    "title": "Data Acquisition For Reporting Analysis",
+    "section": "Data Cleaning and Transformations",
+    "text": "Data Cleaning and Transformations\nTo make the data easy to use I did the following:\n-convert the JSON files to CSVs -Made sure all dates were the same format -Filtered filing types, only including quarterly and annual reports"
+  },
+  {
+    "objectID": "blogs/data_acquisition.html#data-quality-considerations",
+    "href": "blogs/data_acquisition.html#data-quality-considerations",
+    "title": "Data Acquisition For Reporting Analysis",
+    "section": "Data Quality Considerations",
+    "text": "Data Quality Considerations\nSeveral limitations should be considered when using this dataset.\n\nMissing Data\n\ncompanies may have incomplete historical price data\nnot all companies started at the same time so some have data going much farther back\n\n\n\nCoverage\nThe dataset only has companies who are traded on the NASDAQ, have historic data available, and file with the SEC."
+  },
+  {
+    "objectID": "blogs/data_acquisition.html#reproducibility-and-code",
+    "href": "blogs/data_acquisition.html#reproducibility-and-code",
+    "title": "Data Acquisition For Reporting Analysis",
+    "section": "Reproducibility and Code",
+    "text": "Reproducibility and Code\nAll code used to collect and process the data is available here:\n👉 GitHub Repository – Project Code\nThe repository includes:\n\nAPI data collection scripts\ncleaning and transformation steps\ndataset generation code\n\nStudents interested in building similar datasets can use this code as a starting point."
+  },
+  {
+    "objectID": "blogs/data_acquisition.html#further-resources",
+    "href": "blogs/data_acquisition.html#further-resources",
+    "title": "Data Acquisition For Reporting Analysis",
+    "section": "Further Resources",
+    "text": "Further Resources\nIf you want to explore these data sources further, the following resources are helpful:\n\nSEC EDGAR Company Filings\nSEC API Documentation\nyfinance Python Library\n\nThese tools make it possible to build powerful financial datasets with relatively little infrastructure."
+  },
+  {
+    "objectID": "blogs/data_acquisition.html#conclusion",
+    "href": "blogs/data_acquisition.html#conclusion",
+    "title": "Data Acquisition For Reporting Analysis",
+    "section": "Conclusion",
+    "text": "Conclusion\nThis project shows how accessible data is and how we can aggregate many files to create a unique dataset and gain greater insight into new topics."
+  },
+  {
     "objectID": "blogs/tutorial.html",
     "href": "blogs/tutorial.html",
     "title": "Apply Function VS Vectorized Operations",
     "section": "",
-    "text": "In Class I have been learning about how to utilize Pandas in my data cleaning and analysis. One of the earliest functions we learned is the .apply() function. This is a super useful function that we can use to make changes to all of our rows in one call.\nThe downside is, it isn’t always the most efficient. This often wont make a huge difference but if we are working with large data sets, it can cut your run time down by a lot.\nIn this article, I hope to explain:\n\nHow does .apply() work?\nWhen should we use it?\nWhat is the alternative?\n\nHaving an understanding of apply() and its shortcomings will help you spend less time waiting on your computer and make you a better Data Scientist\n\n\n\n\nThe .apply() function takes another function and applies it to each row or column in a Series or DataFrame.\nIf it sounds like a loop, that’s because it kind of is one.\n\n.apply() executes Python code row-by-row.\n\nThis is the main shortcoming, rather than doing things all at once, its going through, one at a time and this takes time while simultaneously not allowing your computer to work as hard as it could using other methods.This is why the difference is much more noticeable on larger datasets.\n\n\n\n\nCode\nimport pandas as pd\n\ndf = pd.DataFrame({\n    \"score\": [72, 88, 95, 60, 83]\n})\n\ndef pass_fail(x):\n    return \"Pass\" if x &gt;= 70 else \"Fail\"\n\ndf[\"result\"] = df[\"score\"].apply(pass_fail)\ndf\n\n\n\n\n\n\n\n\n\nscore\nresult\n\n\n\n\n0\n72\nPass\n\n\n1\n88\nPass\n\n\n2\n95\nPass\n\n\n3\n60\nFail\n\n\n4\n83\nPass\n\n\n\n\n\n\n\nThis is a great use for apply(), it keeps the code intuitive and since it isn’t very large, we dont even notice the extra time it takes.\n\n\n\n\n\n.apply() makes the most sense when:\n\nWhen your logic is complex and hard to vectorize\nYou have conditional transformations\nYou are in the EDA phase of your analysis\nYour dataset is small enough that you aren’t worried about how long it takes\n\n\n\n\n\nCode\ndef categorize(score):\n    if score &gt;= 90:\n        return \"A\"\n    elif score &gt;= 80:\n        return \"B\"\n    elif score &gt;= 70:\n        return \"C\"\n    else:\n        return \"Below C\"\n\ndf[\"grade\"] = df[\"score\"].apply(categorize)\ndf\n\n\n\n\n\n\n\n\n\nscore\nresult\ngrade\n\n\n\n\n0\n72\nPass\nC\n\n\n1\n88\nPass\nB\n\n\n2\n95\nPass\nA\n\n\n3\n60\nFail\nBelow C\n\n\n4\n83\nPass\nB\n\n\n\n\n\n\n\nSimilarly to the previous example, this helps the code to be easy to read and understand.\n\n\n\n\n\nThe biggest issue is size.\n.apply() as mentioned before works almost like a loop, meaning it performs the operations over and over where as other methods can do it all at once. It still does it very quickly so unless you’re dealing with hundreds of rows it probably wont be a problem but sometimes we are working with millions of rows and that can have a huge difference.\nAn example of .apply() not being ideal is finding a mean:\n\\[\n\\bar{x} = \\frac{1}{n} \\sum_{i=1}^{n} x_i\n\\]\nBeing able to write it as a simple formula is a big hint that alternative options will be feasible and doing something like this in a loop will take forever. So what are your options?\n\n\n\n\nBringing us back to Linear algebra and using vectors can help us do some of our computations way more efficiently.\nYou may be thinking that this is great for numbers but we can also use it with boolean data.\n\n\n\n\nCode\ndf[\"result_vectorized\"] = df[\"score\"] &gt;= 70\ndf\n\n\n\n\n\n\n\n\n\nscore\nresult\ngrade\nresult_vectorized\n\n\n\n\n0\n72\nPass\nC\nTrue\n\n\n1\n88\nPass\nB\nTrue\n\n\n2\n95\nPass\nA\nTrue\n\n\n3\n60\nFail\nBelow C\nFalse\n\n\n4\n83\nPass\nB\nTrue\n\n\n\n\n\n\n\nThis adds a new column to our dataframe which we can compare to our earlier results, this time it returns True or False which is a little bit less readable but often we would want it that way anyway. Another limitation is that our grade column is going to be much harder to replicate. As you can see by the code though, once you’re familiar with how it works, its more concise and easier to read.\nThe reason this is so much faster is because it converts the columns into vectors and does everything all at once rather than every row individually.\nSince optimization can be really important, Pandas has published official documentation to improve performance. Link Here.\n\n\n\n\n\n\n\n\nImage comparing loops (Apply function) vs vectorized logic\n\n\nFigure: Vectorized operations operate on entire arrays at once, rather than looping through rows individually.\n\n\n\n\nBefore using the .apply() function:\n\nIs this logic simple?\nIs there a built-in Pandas function for this?\nWould a Boolean response work?\n\nIf you answer yes to any of these, consider avoiding .apply()\n\n\n\n\n.apply() is great and extremely useful in many ways but it isn’t the best tool for every job.\nSteps to take:\n\nUtilize built-in Pandas methods whenever possible\n\nTry Vectorized operations\nUse .apply() for complex custom transformations\n\nEven if you’re currently working with smaller data where efficiency isn’t a huge priority, consider practicing more efficient methods to build those skills and to be ready for larger datasets."
+    "text": "In Class I have been learning about how to utilize Pandas in my data cleaning and analysis. One of the earliest functions we learned is the .apply() function. This is a super useful function that we can use to make changes to all of our rows in one call.\nThe downside is, it isn’t always the most efficient. This often wont make a huge difference but if we are working with large data sets, it can cut your run time down by a lot.\nIn this article, I hope to explain:\n\nHow does .apply() work?\nWhen should we use it?\nWhat is the alternative?\n\nHaving an understanding of apply() and its shortcomings will help you spend less time waiting on your computer and make you a better Data Scientist\n\n\n\n\nThe .apply() function takes another function and applies it to each row or column in a Series or DataFrame.\nIf it sounds like a loop, that’s because it kind of is one.\n\n.apply() executes Python code row-by-row.\n\nThis is the main shortcoming, rather than doing things all at once, its going through, one at a time and this takes time while simultaneously not allowing your computer to work as hard as it could using other methods.This is why the difference is much more noticeable on larger datasets.\n\n\n\n\nCode\nimport pandas as pd\n\ndf = pd.DataFrame({\n    \"score\": [72, 88, 95, 60, 83]\n})\n\ndef pass_fail(x):\n    return \"Pass\" if x &gt;= 70 else \"Fail\"\n\ndf[\"result\"] = df[\"score\"].apply(pass_fail)\ndf\n\n\n\n\n\n\n\n\n\nscore\nresult\n\n\n\n\n0\n72\nPass\n\n\n1\n88\nPass\n\n\n2\n95\nPass\n\n\n3\n60\nFail\n\n\n4\n83\nPass\n\n\n\n\n\n\n\nThis is a great use for apply(), it keeps the code intuitive and since it isn’t very large, we dont even notice the extra time it takes.\n\n\n\n\n\n.apply() makes the most sense when:\n\nWhen your logic is complex and hard to vectorize\nYou have conditional transformations\nYou are in the EDA phase of your analysis\nYour dataset is small enough that you aren’t worried about how long it takes\n\n\n\n\n\nCode\ndef categorize(score):\n    if score &gt;= 90:\n        return \"A\"\n    elif score &gt;= 80:\n        return \"B\"\n    elif score &gt;= 70:\n        return \"C\"\n    else:\n        return \"Below C\"\n\ndf[\"grade\"] = df[\"score\"].apply(categorize)\ndf\n\n\n\n\n\n\n\n\n\nscore\nresult\ngrade\n\n\n\n\n0\n72\nPass\nC\n\n\n1\n88\nPass\nB\n\n\n2\n95\nPass\nA\n\n\n3\n60\nFail\nBelow C\n\n\n4\n83\nPass\nB\n\n\n\n\n\n\n\nSimilarly to the previous example, this helps the code to be easy to read and understand.\n\n\n\n\n\nThe biggest issue is size.\n.apply() as mentioned before works almost like a loop, meaning it performs the operations over and over where as other methods can do it all at once. It still does it very quickly so unless you’re dealing with hundreds of rows it probably wont be a problem but sometimes we are working with millions of rows and that can have a huge difference.\nAn example of .apply() not being ideal is finding a mean:\n\\[\n\\bar{x} = \\frac{1}{n} \\sum_{i=1}^{n} x_i\n\\]\nBeing able to write it as a simple formula is a big hint that alternative options will be feasible and doing something like this in a loop will take forever. So what are your options?\n\n\n\n\nBringing us back to Linear algebra and using vectors can help us do some of our computations way more efficiently.\nYou may be thinking that this is great for numbers but we can also use it with boolean data.\n\n\n\n\nCode\ndf[\"result_vectorized\"] = df[\"score\"] &gt;= 70\ndf\n\n\n\n\n\n\n\n\n\nscore\nresult\ngrade\nresult_vectorized\n\n\n\n\n0\n72\nPass\nC\nTrue\n\n\n1\n88\nPass\nB\nTrue\n\n\n2\n95\nPass\nA\nTrue\n\n\n3\n60\nFail\nBelow C\nFalse\n\n\n4\n83\nPass\nB\nTrue\n\n\n\n\n\n\n\nThis adds a new column to our dataframe which we can compare to our earlier results, this time it returns True or False which is a little bit less readable but often we would want it that way anyway. Another limitation is that our grade column is going to be much harder to replicate. As you can see by the code though, once you’re familiar with how it works, its more concise and easier to read.\nThe reason this is so much faster is because it converts the columns into vectors and does everything all at once rather than every row individually.\nSince optimization can be really important, Pandas has published official documentation to improve performance. Link Here.\n\n\n\n\n\n{fig-alt=“Image comparing loops (Apply function) vs vectorized logic}\nFigure: Vectorized operations operate on entire arrays at once, rather than looping through rows individually.\n\n\n\n\nBefore using the .apply() function:\n\nIs this logic simple?\nIs there a built-in Pandas function for this?\nWould a Boolean response work?\n\nIf you answer yes to any of these, consider avoiding .apply()\n\n\n\n\n.apply() is great and extremely useful in many ways but it isn’t the best tool for every job.\nSteps to take:\n\nUtilize built-in Pandas methods whenever possible\n\nTry Vectorized operations\nUse .apply() for complex custom transformations\n\nEven if you’re currently working with smaller data where efficiency isn’t a huge priority, consider practicing more efficient methods to build those skills and to be ready for larger datasets."
   },
   {
     "objectID": "blogs/tutorial.html#introduction",
@@ -167,7 +244,7 @@
     "href": "blogs/tutorial.html#visualizing-the-difference",
     "title": "Apply Function VS Vectorized Operations",
     "section": "",
-    "text": "Image comparing loops (Apply function) vs vectorized logic\n\n\nFigure: Vectorized operations operate on entire arrays at once, rather than looping through rows individually."
+    "text": "{fig-alt=“Image comparing loops (Apply function) vs vectorized logic}\nFigure: Vectorized operations operate on entire arrays at once, rather than looping through rows individually."
   },
   {
     "objectID": "blogs/tutorial.html#just-to-reiterate",

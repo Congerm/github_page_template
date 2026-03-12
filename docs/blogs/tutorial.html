@@ -107,10 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -207,6 +204,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../blogs/tutorial.html">
  <span class="dropdown-text">Tutorial Blog Post</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../blogs/data_acquisition.html">
+ <span class="dropdown-text">Data Acquisition Blog Post</span></a>
   </li>  
     </ul>
   </li>
@@ -320,7 +321,7 @@ window.Quarto = {
 <p>This is the main shortcoming, rather than doing things all at once, its going through, one at a time and this takes time while simultaneously not allowing your computer to work as hard as it could using other methods.This is why the difference is much more noticeable on larger datasets.</p>
 <section id="example-basic-use-for-.apply" class="level3">
 <h3 class="anchored" data-anchor-id="example-basic-use-for-.apply">Example: Basic use for <code>.apply()</code></h3>
-<div id="b70a388f" class="cell" data-execution_count="1">
+<div id="98c3fe12" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -394,7 +395,7 @@ window.Quarto = {
 </ul>
 <section id="example-multi-level-grading-logic" class="level3">
 <h3 class="anchored" data-anchor-id="example-multi-level-grading-logic">Example: Multi-Level Grading Logic</h3>
-<div id="de112587" class="cell" data-execution_count="2">
+<div id="157e98ec" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> categorize(score):</span>
@@ -481,7 +482,7 @@ window.Quarto = {
 <p>You may be thinking that this is great for numbers but we can also use it with boolean data.</p>
 <section id="example-.apply-returning-a-boolean-value" class="level3">
 <h3 class="anchored" data-anchor-id="example-.apply-returning-a-boolean-value">Example: <code>.apply()</code> returning a boolean value</h3>
-<div id="d4a89dc8" class="cell" data-execution_count="3">
+<div id="e89f05f5" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"result_vectorized"</span>] <span class="op">=</span> df[<span class="st">"score"</span>] <span class="op">&gt;=</span> <span class="dv">70</span></span>
@@ -551,12 +552,7 @@ window.Quarto = {
 </section>
 <section id="visualizing-the-difference" class="level2">
 <h2 class="anchored" data-anchor-id="visualizing-the-difference">Visualizing the Difference</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="ApplyVSVector.png" class="img-fluid figure-img"></p>
-<figcaption>Image comparing loops (Apply function) vs vectorized logic</figcaption>
-</figure>
-</div>
+<p><img src="ApplyVSVector.png" class="img-fluid">{fig-alt=“Image comparing loops (Apply function) vs vectorized logic}</p>
 <p><em>Figure: Vectorized operations operate on entire arrays at once, rather than looping through rows individually.</em></p>
 <hr>
 </section>
@@ -1168,7 +1164,7 @@ window.Quarto = {
 <span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a><span class="fu">## Visualizing the Difference</span></span>
 <span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a><span class="al">![Image comparing loops (Apply function) vs vectorized logic](ApplyVSVector.png)</span></span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a><span class="al">![](ApplyVSVector.png)</span>{fig-alt="Image comparing loops (Apply function) vs vectorized logic}</span>
 <span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a>*Figure: Vectorized operations operate on entire arrays at once, rather than looping through rows individually.*</span>
 <span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a></span>

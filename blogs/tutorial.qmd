@@ -125,7 +125,7 @@ Since optimization can be really important, Pandas has published official docume
 
 ## Visualizing the Difference
 
-![Image comparing loops (Apply function) vs vectorized logic](ApplyVSVector.png)
+![](ApplyVSVector.png){fig-alt="Image comparing loops (Apply function) vs vectorized logic}
 
 *Figure: Vectorized operations operate on entire arrays at once, rather than looping through rows individually.*
 
